@@ -1,0 +1,19 @@
+{
+  "name": "playwright-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.3"
+  },
+  "scripts": {
+    "ui": "npx playwright test --ui",
+    "test": "npx playwright test --reporter=html",
+    "report": "npx playwright show-report"
+  }
+}
