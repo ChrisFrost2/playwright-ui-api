@@ -64,6 +64,18 @@ test.describe('API Tests for JSONPlaceholder', () => {
         expect(response.ok()).toBeTruthy();
         const post = await response.json();
         expect(post.title).toBe(updatedPost.title);
+        expect(post.body).toBe(updatedPost.body);
+        expect(post.userId).toBe(1);
+        expect(post.id).toBe(1);
+    });
+
+    test('Update only the title of post', async ({ request }) => {
+        const patch: Post = { title: 'Patched title' };
+        const response = await context.patch('posts/1', patch);
+        expect(response.ok()).toBeTruthy();
+        const post = await response.json();
+        expect(post.title).toBe(patch.title);
+        expect(post.id).toBe(1);
     });
 
     test('Delete post by id', async ({ request }) => {

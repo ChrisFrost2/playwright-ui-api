@@ -21,6 +21,10 @@ export class ApiClient {
     return await this.request.put(`${this.baseURL}/${urlPortfix}`, { data: post });
   }
 
+  public async patch(urlPortfix: string, post: Post) {    
+    return await this.request.put(`${this.baseURL}/${urlPortfix}`, { data: post });
+  }
+
   public async delete(urlPortfix: string, id: number) {
     return await this.request.delete(`${this.baseURL}/${urlPortfix}/${id}`);
   }
