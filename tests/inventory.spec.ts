@@ -16,13 +16,24 @@ test.describe('Inventory tests', () => {
     await expect(checkoutCompletePage.header).toBeVisible();
   });
 
-  test('Add product to cart and remove', async ({ page, loginPage, inventoryPage }) => {
+  test('Add product to cart and remove from inventory page', async ({ page, loginPage, inventoryPage }) => {
     await loginPage.open();
     await loginPage.login('standard_user', 'secret_sauce');
     await inventoryPage.isOpened();
     await inventoryPage.addProductToCart('Sauce Labs Backpack');
     await inventoryPage.moreThanOneProductInCart();
     await inventoryPage.removeProductFromCart('Sauce Labs Backpack');    
+    await inventoryPage.noProductsInCart();
+  });
+
+  test('Add product to cart and remove from cart page', async ({ page, loginPage, inventoryPage, cartPage }) => {
+    await loginPage.open();
+    await loginPage.login('standard_user', 'secret_sauce');
+    await inventoryPage.isOpened();
+    await inventoryPage.addProductToCart('Sauce Labs Backpack');
+    await inventoryPage.moreThanOneProductInCart();
+    await inventoryPage.shopping_cart_icon.click();
+    await cartPage.removeProductFromCart('Sauce Labs Backpack');    
     await inventoryPage.noProductsInCart();
   });
 });
