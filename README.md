@@ -1,4 +1,4 @@
-## Example of using POM and Fixtures for Playwright with https://www.saucedemo.com/
+## Example of Playwright for https://www.saucedemo.com/ and https://jsonplaceholder.typicode.com/
 
 # How to start
 npm instal
